@@ -8,7 +8,9 @@ Per the instructions on the linke bewlow:
 
 https://support.metamask.io/hc/en-us/articles/360018766351-How-to-recover-your-Secret-Recovery-Phrase
 
-If you get a scuttle/scuttling error or `runtime-lavamote.js`/`lavamoat.js` does not allow you to extract the json data string you may try the steps below to recover your metamask wallet and brute force the hash password.
+If you get a scuttle/scuttling error like the one below or `runtime-lavamote.js` does not allow you to extract the json data string you may try the steps below to recover your metamask wallet and brute force the hash password.
+
+`Uncaught Error: LavaMoat - property "chrome" of globalThis is inaccessible under scuttling mode. To learn more visit https://github.com/LavaMoat/LavaMoat/pull/360.`
 
 First you have to get firefox developer edition as you need to disable scuttling on `runtime-javamoat.js` and recreate the XPI zip archive which then will not be signed by mozilla and regular/production firefox will not allow you to use the metamask extension and it will be disabled. For linux or recent fedora versions you can usually download the bzip2 archive from their site and extract it using `bunzip firefox.bz2` and then extract the tar file using `tar -xvf firefox.tar`.
 
@@ -90,9 +92,7 @@ Here are some of the iterations I played around with:
 
 `hashcat -a 6 -m 26600 -o output.txt -p \: -d 1,2 -w 3 archivehash.txt wordslist.txt`
 
-`hashcat -a 6 -m 26600 -o output.txt -p \: -d 1,2 -w 3 archivehash.txt wordslist.txt`
-
-`hashcat -a 3 -m 26600 -o output.txt  -d 1,2 -w 3 archivehash.txt wordslist.txt -1?u?l?d?u?l?d?u?l?d`
+`hashcat -a 6 -m 26600 -o output.txt  -d 1,2 -w 3 archivehash.txt wordslist.txt -1?u?l?d?u?l?d?u?l?d`
 
 The paraemters above mean the following:
 
